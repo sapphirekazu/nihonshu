@@ -109,7 +109,7 @@ div.header {
 
 nav a:hover {
     color: #F7CB4D;
-/*    border-bottom: 0 solid #F7CB4D;*/
+    /*    border-bottom: 0 solid #F7CB4D;*/
 }
 
 li {
@@ -117,7 +117,8 @@ li {
     line-height: 30px;
 }
 
-.decoration{
+
+.decoration {
     text-decoration: none;
 }
 
@@ -161,11 +162,29 @@ li {
     ul.nav {
         display: flex;
     }
+
+    .sayuri {
+        max-width: 40%;
+        display: inline-flex;
+        float: left;
+    }
+
+    .sayuri-text {
+        padding-top: 10%;
+        margin: 0 auto;
+    }
+
+    div.text {
+        padding-bottom: 100px;
+    }
+
 }
 
 .content {
     padding: 20px;
 }
+
+
 
 /*スマホ・タブレット用*/
 @media screen and (max-width: 768px) {
@@ -240,13 +259,18 @@ li {
         z-index: 150;
     }
 
+    .humberger-nav {
+        margin-top: 40px;
+    }
+
     .humberger-nav li {
         margin-left: 15px;
         margin-top: 18px;
-        line-height: 65px;
-        font-size: 28px;
+        line-height: 60px;
+        font-size: 20px;
         border-bottom: 3px solid #FFF;
         width: 80%;
+        margin-top: 40px;
     }
 }
 
@@ -471,6 +495,7 @@ span {
 div.text {
     text-align: center;
 }
+
 
 
 
