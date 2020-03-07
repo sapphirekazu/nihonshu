@@ -46,7 +46,13 @@ $(function () {
         }
     });
 
-
+//    モーダルウィンドウ
+ $('#openModal').click(function(){
+      $('#modalArea').fadeIn();
+  });
+  $('#closeModal , #modalBg').click(function(){
+    $('#modalArea').fadeOut();
+  });
 
     //ページ上部へ戻る
     var backToTop = $('#backToTop');
