@@ -25,7 +25,6 @@ a {
 }
 
 a:hover {
-/*    text-decoration: underline;*/
     font-weight: bold;
     box-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
 }
@@ -83,7 +82,6 @@ object {
     display: none;
     position: fixed;
     z-index: 149;
-    /*サイトによってここの数値は調整 */
     top: 0;
     left: 0;
     width: 100%;
@@ -124,7 +122,6 @@ object {
 
 #header {
     background-color: #ccc;
-    /*    margin-bottom: -10px;*/
 }
 
 #header .logo a {
@@ -152,7 +149,6 @@ div.header {
 
 nav a:hover {
     color: #F7CB4D;
-    /*    border-bottom: 0 solid #F7CB4D;*/
 }
 
 li {
@@ -207,7 +203,7 @@ li {
     display: none;
 }
 
-/*pc用*/
+/*PC用ブレイクポイント*/
 @media screen and (min-width: 769px) {
 #contents {
     max-width: 90%;
@@ -256,7 +252,7 @@ li {
 
 
 
-/*スマホ・タブレット用*/
+/*スマホ・タブレット用ブレイクポイント*/
 @media screen and (max-width: 768px) {
     .nav-button {
         display: block;
@@ -383,7 +379,6 @@ li {
 .slideshow img {
     position: absolute;
     left: 0;
-    /*        top: -261px;*/
     opacity: 0;
     transition: 1.5s; /* フェードの時間(秒) */
     width: 100%;
@@ -471,8 +466,6 @@ p.ivent {
     margin-top: 10px;
     padding-bottom: 30px;
 }
-
-
 
 .plantext span {
     width: 100%;
@@ -571,7 +564,6 @@ span.place {
     height: 0;
 }
 
-
 .text-center {
     text-align: center;
     margin-top: 15px;
@@ -593,12 +585,10 @@ form {
 
 .item {
     overflow: hidden;
-    /*    margin-bottom: 20px;*/
 }
 
 .label {
     float: left;
-    /*  margin-right: 20px;*/
     width: auto;
     border-left: solid 3px #e0505d;
     padding-left: 10px;
@@ -673,11 +663,6 @@ input.addressditeil {
     text-align: center;
 }
 
-input {
-/*    margin-top: 10px;*/
-/*    margin-right: -49px;*/
-}
-
 
 /*--------------------------------
 　今月のおすすめ
@@ -706,7 +691,6 @@ span {
 div.text {
     text-align: center;
 }
-
 
 
 
@@ -787,7 +771,6 @@ input.special:hover:before {
 #footer {
     background-color: #aaa;
     width: 100%;
-    /*    margin-top: 25%;*/
 }
 
 #footer .inner {
@@ -809,8 +792,3 @@ input.special:hover:before {
 .copyright {
     text-align: center;
 }
-
-/*media Queries 767
-----------------------------------------------------*/
-
-@media screen and (max-width: 767px) {}
