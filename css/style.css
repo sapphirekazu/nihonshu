@@ -16,6 +16,7 @@ body {
     font-size: 15px;
     line-height: 1.8;
     word-break: break-all;
+    background-color: lightpink;
 }
 
 a {
@@ -24,7 +25,9 @@ a {
 }
 
 a:hover {
-    text-decoration: underline;
+/*    text-decoration: underline;*/
+    font-weight: bold;
+    box-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
 }
 
 a:hover img {
@@ -77,37 +80,41 @@ object {
 
 /*モーダルウィンドウ*/
 .modalArea {
-  display: none;
-  position: fixed;
-  z-index: 149; /*サイトによってここの数値は調整 */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    display: none;
+    position: fixed;
+    z-index: 149;
+    /*サイトによってここの数値は調整 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .modalBg {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(30,30,30,0.9);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 30, 30, 0.9);
 }
 
 .modalWrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform:translate(-50%,-50%);
-  width: 70%;
-  max-width: 500px;
-  padding: 10px 30px;
-  background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    width: 70%;
+    max-width: 500px;
+    height: 78%;
+    padding: 10px 30px;
+    background-color: #fff;
+    overflow-y: scroll;
 }
 
 .closeModal {
-  position: absolute;
-  top: 0.5rem;
-  right: 1rem;
-  cursor: pointer;
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    cursor: pointer;
 }
 
 
@@ -153,9 +160,10 @@ li {
     line-height: 30px;
 }
 
-
 .decoration {
     text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
 }
 
 /*--------------------------------
@@ -166,11 +174,20 @@ li {
     display: flex;
     justify-content: space-between;
     background: #ddd;
-    padding: 20px;
+    padding: 20px 20px 10px 20px;
 }
 
 .nav-button {
     display: none;
+}
+
+.nav-button.open {
+    z-index: 9999;
+    position: fixed;
+    top: 7px;
+    right: 28px;
+    width: 40px;
+    height: 36px;
 }
 
 .nav {
@@ -178,6 +195,7 @@ li {
     text-decoration: none;
     font-size: 14px;
     color: #448aff;
+    margin-top: 18px;
 }
 
 .nav-wrap.open {
@@ -191,6 +209,11 @@ li {
 
 /*pc用*/
 @media screen and (min-width: 769px) {
+#contents {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
     .nav-wrap {
         display: block !important;
     }
@@ -200,9 +223,11 @@ li {
     }
 
     .sayuri {
-        max-width: 40%;
+        max-width: 35%;
         display: inline-flex;
         float: left;
+        margin-left: 90px;
+        border: 3px solid #e0edff;
     }
 
     .sayuri-text {
@@ -214,6 +239,15 @@ li {
         padding-bottom: 100px;
     }
 
+    .sp-nav-icon {
+        display: none;
+    }
+
+    .pc-nav-icon {
+        margin: 0px 1px 10px 0px;
+        width: 16px;
+        display: inline-block;
+    }
 }
 
 .content {
@@ -240,8 +274,17 @@ li {
         height: 100%;
     }
 
+    .sp-nav-icon {
+        width: 25px;
+        display: inline-block;
+        margin: 20px;
+    }
 
-    /*メニューボタンのエフェクト*/
+    .pc-nav-icon {
+        display: none;
+    }
+
+/*メニューボタンのエフェクト*/
     .nav-button,
     .nav-button span {
         display: inline-block;
@@ -250,10 +293,10 @@ li {
     }
 
     .nav-button {
-        /*    z-index: ;*/
         position: relative;
         width: 40px;
         height: 36px;
+        margin-top: 5px;
     }
 
     .nav-button span {
@@ -317,7 +360,7 @@ li {
 ---------------------------------*/
 
 .section {
-    background-color: #ddd;
+    background-color: floralwhite;
     height: auto;
     padding: 30px 0;
 }
@@ -332,11 +375,8 @@ li {
 }
 
 .slideshow {
-    /*    position: relative;*/
     width: 100%;
-    /* 画像の横幅 */
-    height: 550px;
-    /* 画像の縦幅 */
+    height: 570px;
     position: relative;
 }
 
@@ -345,22 +385,14 @@ li {
     left: 0;
     /*        top: -261px;*/
     opacity: 0;
-    transition: 1s;
-    /* フェードの時間(秒) */
+    transition: 1.5s; /* フェードの時間(秒) */
     width: 100%;
 
 }
 
 .slideshow .show {
     opacity: 1;
-    /*    z-index: 1;*/
 }
-
-/*
-.topimg{
-    margin: 150px;
-}
-*/
 
 .onText {
     margin-top: 250px;
@@ -374,10 +406,7 @@ li {
 p.onText {
     text-align: center;
     z-index: 11;
-    /*    position: absolute;*/
-    /*    margin: 500px 500px;*/
-    margin-left: 75px;
-    margin-right: 75px;
+    margin: 0 60px;
     margin-top: -456px;
     color: #ff0495;
     background-color: rgba(255, 255, 255, 0.8);
@@ -393,7 +422,6 @@ p.onText {
 #section1 {
     margin-top: 12%;
     text-align: center;
-    background-color: #c9fdf7;
     position: relative;
 }
 
@@ -407,6 +435,9 @@ p.onText {
     z-index: 1;
     width: 85%;
     margin: 0 auto;
+    border: 3px solid lightpink;
+    border-radius: 5px;
+    box-shadow: 4px 4px lightpink;
 }
 
 .contents {
@@ -417,6 +448,7 @@ p.onText {
     display: inline-block;
     margin: 15px 10px;
     border: 1px solid black;
+    box-shadow: 2px 2px lightpink;
 }
 
 p.ivent {
@@ -429,7 +461,6 @@ p.ivent {
 　plan
 ---------------------------------*/
 #section02 {
-    background-color: #fdf9c3;
     height: auto;
 }
 
@@ -438,6 +469,7 @@ p.ivent {
     background-color: #fff;
     text-align: center;
     margin-top: 10px;
+    padding-bottom: 30px;
 }
 
 
@@ -471,32 +503,74 @@ span.place {
     display: inline-block;
     padding: 0.5em 1em;
     text-decoration: none;
-    background: #668ad8;
-    /*ボタン色*/
+    background: #668ad8; /*ボタン色*/
+    font-size: 22px;
     color: #FFF;
     border-bottom: solid 4px #627295;
     border-radius: 3px;
     margin: 5%;
-    width: 40%;
+    width: 200px;
+    border-radius: 20px;
+    cursor: pointer;
 }
 
 .btn-square:active {
     /*ボタンを押したとき*/
     -webkit-transform: translateY(4px);
-    transform: translateY(4px);
-    /*下に動く*/
-    border-bottom: none;
-    /*線を消す*/
+    transform: translateY(4px); /*下に動く*/
+    border-bottom: none; /*線を消す*/
 }
 
 .step_h {
     font-size: 150%;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .order_flow {
     text-align: center;
 }
+
+.flow-step {
+    width: 80%;
+    margin:0 auto;
+    position: relative;
+    padding: 0.6em;
+    background: #e0edff;
+}
+
+.flow-step-last {
+    width: 80%;
+    margin:0 auto;
+    position: relative;
+    padding: 0.6em;
+    background: #e0edff;
+}
+
+.flow-step-last .text {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'ゴシック';
+    color: orangered;
+}
+
+.flow-step .text {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'ゴシック';
+}
+
+.flow-step:after {
+    position: absolute;
+    content: '';
+    top: 100%;
+    left: 46%;
+    border: 15px solid transparent;
+    border-top: 20px solid #e0edff;
+    width: 0;
+    height: 0;
+}
+
 
 .text-center {
     text-align: center;
@@ -505,15 +579,116 @@ span.place {
 }
 
 /*--------------------------------
-　今月のお届け
+　モーダルウィンドウの申し込みフォーム
+---------------------------------*/
+.lead-form {
+    text-align: center;
+    font-size: 20px;
+}
+
+form {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.item {
+    overflow: hidden;
+    /*    margin-bottom: 20px;*/
+}
+
+.label {
+    float: left;
+    /*  margin-right: 20px;*/
+    width: auto;
+    border-left: solid 3px #e0505d;
+    padding-left: 10px;
+}
+
+.inputs {
+    float: left;
+    width: 100%;
+    margin-top: 7px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+    border: solid 1px #aaa;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 5px;
+}
+
+textarea {
+    border: solid 1px #aaa;
+    border-radius: 5px;
+    padding: 10px;
+    height: 160px;
+    font-size: 5px;
+}
+
+.btn-area {
+    text-align: center;
+}
+
+input[type="submit"] {
+    background: #e0505c;
+    border: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 0 5px 10px;
+    cursor: pointer;
+}
+
+input[type="reset"] {
+    background: #aaa;
+    border: none;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+input.address {
+    width: 100px;
+    height: 15px;
+    display: block;
+    margin-top: 7px;
+    margin-bottom: 15px;
+}
+
+input.addressditeil {
+    margin-right: 65%;
+    margin-bottom: 10%;
+}
+
+.credit{
+    font-size: 5px;
+    margin-bottom: 15px;
+    margin-top: -10px;
+    text-align: center;
+}
+
+input {
+/*    margin-top: 10px;*/
+/*    margin-right: -49px;*/
+}
+
+
+/*--------------------------------
+　今月のおすすめ
 ---------------------------------*/
 #section03 {
-    background-color: #fdd0c3;
     height: auto;
 }
 
 .dit {
     text-align: center;
+    font-weight: bold;
 }
 
 h3.dit {
@@ -549,7 +724,7 @@ textarea {
     margin-bottom: 15px;
     padding: 10px;
     font-size: 18px;
-    border: 1px solid #dee7ec;
+    border: 1px solid #aaa;
 }
 
 input {
@@ -575,6 +750,8 @@ input.special {
     margin-top: 15%;
     width: 40%;
     background-color: #fff;
+    border: 2px solid;
+    cursor: pointer;
 }
 
 input.special:before {
@@ -596,6 +773,11 @@ input.special:hover:before {
 
 .formnona {
     margin-top: 5%;
+}
+
+.required-item {
+    color: red;
+    font-size: 10px;
 }
 
 /*--------------------------------
@@ -622,6 +804,10 @@ input.special:hover:before {
 
 #footer .copyright a {
     color: #333;
+}
+
+.copyright {
+    text-align: center;
 }
 
 /*media Queries 767

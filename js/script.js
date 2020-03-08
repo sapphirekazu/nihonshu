@@ -34,25 +34,33 @@ $(function () {
         }
     });
 
+
+//    ナビボタン
     var jsNavButoon = $('.js-nav-button');
     var navWrap = $('.nav-wrap');
     jsNavButoon.on('click', function () {
         if (jsNavButoon.hasClass('active')) {
             jsNavButoon.removeClass('active');
+            jsNavButoon.removeClass('open');
             navWrap.addClass('close').removeClass('open');
         } else {
             jsNavButoon.addClass('active');
+           jsNavButoon.addClass('open');
             navWrap.addClass('open').removeClass('close');
         }
     });
 
+
 //    モーダルウィンドウ
- $('#openModal').click(function(){
-      $('#modalArea').fadeIn();
-  });
-  $('#closeModal , #modalBg').click(function(){
-    $('#modalArea').fadeOut();
-  });
+    var wrapper = $('#wrapper');
+    $('#openModal').click(function(){
+        wrapper.addClass('modalBg');
+        $('#modalArea').fadeIn();
+    });
+    $('#closeModal, #modalBg').click(function(){
+        wrapper.removeClass('modalBg');
+        $('#modalArea').fadeOut();
+    });
 
     //ページ上部へ戻る
     var backToTop = $('#backToTop');
