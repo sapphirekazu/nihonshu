@@ -15,6 +15,8 @@
     <link href="css/style.css" media="all" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="img/favicon.ico" />
     <link rel="stylesheet" href="js/script.js">
+    <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+    <script src="js/ajaxzip3.js" charset="UTF-8"></script>
 </head>
 
 <body>
@@ -24,17 +26,17 @@
 
                 <div class="header">
                     <div class="logo">日本酒のおん蔵</div>
-                    <a class="nav-button" href="#">
+                    <a class="nav-button js-nav-button" href="#">
                         <span></span>
                         <span></span>
                         <span></span>
                     </a>
                     <nav class="nav-wrap">
-                        <ul class="nav">
-                            <li><a href="#section1">コンセプト</a></li>
-                            <li><a href="#section02">プラン</a></li>
-                            <li><a href="#section03">日本酒ランキング</a></li>
-                            <li><a href="#section04">お問い合わせ</a></li>
+                        <ul class="nav humberger-nav">
+                            <li><a href="#section1" class="js-nav-button decoration"><img class="sp-nav-icon" src="img/good_wt.png" alt=""><img class="pc-nav-icon" src="img/good_bk.png" alt="">コンセプト</a></li>
+                            <li><a href="#section02" class="js-nav-button decoration"><img class="sp-nav-icon" src="img/tokkuri_wt.png" alt=""><img class="pc-nav-icon" src="img/tokkuri_bk.png" alt="">プラン</a></li>
+                            <li><a href="#section03" class="js-nav-button decoration"><img class="sp-nav-icon" src="img/bottle_wt.png" alt=""><img class="pc-nav-icon" src="img/bottle_bk.png" alt="">今月のおすすめ</a></li>
+                            <li><a href="#section04" class="js-nav-button decoration"><img class="sp-nav-icon" src="img/book_wt.png" alt=""><img class="pc-nav-icon" src="img/book_bk.png" alt="">お問い合わせ</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -45,7 +47,7 @@
         <div id="mainVisual">
             <div id="topSlideWidget">
                 <div id="slideshow" class="slideshow">
-                   <img src="img/sakemise.jpg" class="maining">
+                    <img src="img/sakemise.jpg" class="maining">
                     <img src="img/saketaru.jpg" class="maining">
                     <img src="img/sakekura.jpg" class="maining">
                     <img src="img/saketenntou.jpg" class="maining">
@@ -84,47 +86,113 @@
                             <p class="box1">ご注文後、<br>毎月自動決済により<br>お酒をお届けするプランです。</p>
                             <span class="place"><br>2,980円 <br>（税込・送料込み）</span>
                             <br>
-                            <a href="#" class="btn-square">申し込む</a>
+                            <!--                            <a href="#" class="btn-square">申し込む</a>-->
+                            <button id="openModal" class="btn-square">申し込む</button>
+
+                            <!-- モーダルエリアここから -->
+                            <section id="modalArea" class="modalArea">
+                                <div id="modalBg" class="modalBg"></div>
+                                <div class="modalWrapper">
+                                    <div class="modalContents">
+                                        <h1>お申し込みフォーム</h1>
+                                        <form>
+
+                                            <div class="item">
+                                                <label class="label">お名前</label>
+                                                <input class="inputs" type="text" name="name" required>
+                                            </div>
+
+                                            <div class="item">
+                                                <label class="label">メールアドレス</label>
+                                                <input class="inputs" type="email" name="email" required>
+                                            </div>
+
+                                            <div class="item">
+                                                <label class="label">電話番号</label>
+                                                <input class="inputs" type="tel" name="tel" required>
+                                            </div>
+
+                                            <!-- ▼郵便番号入力フィールド(7桁) -->
+                                            <div class="item">
+                                                <label class="label">住所</label>
+                                                <br>
+                                                <input type="text" name="zip11" class="address" placeholder="郵便番号入力" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');" required>
+                                                <!-- ▼住所入力フィールド(都道府県+以降の住所) -->
+                                                <input type="text" name="addr11" class="addressditeil" placeholder="ご住所" required>
+
+                                            </div>
+                                            <div class="item">
+                                                <label class="label">ご不明点</label>
+                                                <textarea class="inputs"></textarea>
+                                            </div>
+                                            <p class="credit">
+                                                ※ご購入後、クレジットカード登録フォームをメールにて送らせて頂き、<br>情報入力後申し込み完了となります。
+                                            </p>
+
+                                            <div class="btn-area">
+                                                <input type="submit" value="購入する">
+                                                <input type="reset" value="リセット">
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                    <div id="closeModal" class="closeModal">
+                                        ×
+                                    </div>
+                                </div>
+                            </section>
+
+
+
 
                         </div>
                     </div>
 
                     <h3 class="step_h">お申し込みまでのステップ</h3>
                     <div class="order_flow">
-                        <div class="cont">1, 「申し込む」をクリック</div>
+                        <div class="flow-step">
+                            <p class="text">1, 「申し込む」をクリック</p>
+                            </div>
                         <div class="arrow">
                             <i class="fas fa-chevron-right only_pc"></i>
                             <i class="fas fa-chevron-down only_sp"></i>
                         </div>
-                        <div class="sita">↓</div>
-                        <div class="cont">2, お客様情報の入力</div>
+                        <br>
+                        <div class="flow-step">
+                            <p class="text">2, お客様情報の入力</p>
+                        </div>
                         <div class="arrow">
                             <i class="fas fa-chevron-right only_pc"></i>
                             <i class="fas fa-chevron-down only_sp"></i>
                         </div>
-                        <div class="sita">↓</div>
-                        <div class="cont">3, 購入に進む</div>
+                        <br>
+                        <div class="flow-step">
+                            <p class="text">3, 購入に進む</p>
+                        </div>
                         <div class="arrow">
                             <i class="fas fa-chevron-right only_pc"></i>
                             <i class="fas fa-chevron-down only_sp"></i>
                         </div>
-                        <div class="sita">↓</div>
-                        <div class="cont"> お申し込み完了！</div>
+                        <br>
+                        <div class="flow-step-last">
+                            <p class="text">お申し込み完了！</p>
+                        </div>
                     </div>
+                    <br>
                     <p class="text-center mt-4">※購入完了後に送信させていただくメールにて、<br>マイページの設定を行えます。</p>
 
                 </section>
                 <section class="section" id="section03">
                     <div class="inner">
-                        <h2 class="title">今月のおすすめ日本酒</h2>
+                        <h2 class="title">今月のおすすめ</h2>
                         <div class="text">
-                            <img src="img/sayuri.png" alt="sayuri">
-
-                            <p class="dit">~今月はこちらをお届け~</p>
-                            <h3 class="dit">純米にごり酒</h3>
-                            <h2 class="dit">さゆり</h2>
-                            <span class="price,dit">月々2,980円（税抜・送料込み）</span>
-
+                            <img src="img/sayuri.png" class="sayuri" alt="sayuri">
+                            <div class="sayuri-text">
+                                <p class="dit">~今月はこちらをお届け~</p>
+                                <h3 class="dit">純米にごり酒</h3>
+                                <h2 class="dit">さゆり</h2>
+                                <span class="price,dit">月々2,980円（税抜・送料込み）</span>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -136,11 +204,11 @@
 
                             <form action="#">
                                 <div class="contact-form">
-                                    <p class="formnona">お名前（必須）</p>
+                                    <p class="formnona">お名前<span class="required-item">（必須）</span></p>
                                     <input type="text" name="name" size="40" value="" required>
-                                    <p class="formnona">メールアドレス（必須）</p>
+                                    <p class="formnona">メールアドレス<span class="required-item">（必須）</span></p>
                                     <input type="email" name="mail" size="40" value="" required>
-                                    <p class="formnona">お問い合わせ内容（必須）</p>
+                                    <p class="formnona">お問い合わせ内容<span class="required-item">（必須）</span></p>
                                     <textarea></textarea>
                                     <p>※必須項目は必ずご入力ください</p>
                                     <p class="btn">
@@ -162,11 +230,11 @@
                         <ul>
                             <li><a href="#section1">コンセプト</a></li>
                             <li><a href="#section02">プラン</a></li>
-                            <li><a href="#section02">今月のおすすめ日本酒</a></li>
+                            <li><a href="#section03">今月のおすすめ</a></li>
                             <li><a href="#section04">問い合わせ</a></li>
                         </ul>
                     </nav>
-                    <p class="copyright">Copyright&copy;<a href="#">サイトタイトル</a>. All Rights Reserved.</p>
+                    <p class="copyright">Copyright&copy;<a href="#">Nihonsyu-No-Onkura</a>. All Rights Reserved.</p>
                 </div>
             </footer>
         </div>
@@ -178,6 +246,4 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type='text/javascript' src="js/script.js"></script>
-</body>
-
-</html>
+</body></html>
